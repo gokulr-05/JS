@@ -250,3 +250,41 @@ let obj2 = { first: "akshay", last: "saini" };
 // bindedFunc();
 
 //------------------------------------------------------------------------------------------------------
+
+// currying in javascript
+
+// METHOD 1: CLOSURE
+
+// let fun1 = (a) => {
+//   return (fun2 = (b) => {
+//     return (fun3 = (c) => {
+//       console.log(a + b + c);
+//     });
+//   });
+// };
+
+// fun1(10)(20)(30);
+
+//METHOD 2: bind
+
+// let fun = (a, b, c) => {
+//   console.log("binded function=", a + b + c);
+// };
+
+// let fun1 = fun.bind(this, 10);
+// let fun2 = fun1.bind(this, 20);
+// let fun3 = fun2.bind(this, 30);
+
+// fun3();
+
+// ------------------------------------------------------------------------------
+
+// let fun = (a, b, c) => {
+//   console.log(a + b + c);
+// };
+
+// let fun1 = fun.bind(this, 10);
+
+// fun1(20, 30);
+
+// ------------------------------------------------------------------------------
