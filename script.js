@@ -223,12 +223,12 @@
 
 //------------------------------------------------------------------------------------------------------
 
-let obj1 = {
-  first: "gowtham",
-  last: "karthick",
-};
+// let obj1 = {
+//   first: "gowtham",
+//   last: "karthick",
+// };
 
-let obj2 = { first: "akshay", last: "saini" };
+// let obj2 = { first: "akshay", last: "saini" };
 
 // let fullName = function () {
 //   console.log(this);
@@ -286,5 +286,39 @@ let obj2 = { first: "akshay", last: "saini" };
 // let fun1 = fun.bind(this, 10);
 
 // fun1(20, 30);
+
+// ------------------------------------------------------------------------------
+
+// let arr = [1, 2, 3, 4, 5];
+
+// console.log("arr=", arr);
+// console.log("proto of arr =", arr.__proto__);
+// console.log("proto of proto of arr=", arr.__proto__.__proto__);
+// console.log(
+//   "proto of proto of proto of arr=",
+//   arr.__proto__.__proto__.__proto__
+// );
+
+// let obj = { name: "guru" };
+
+// console.log("proto of obj=", obj.__proto__);
+// console.log("obj=", obj);
+
+// function func1() {
+//   let a = 10;
+// }
+
+// console.log("proto of func1=", func1.__proto__);
+// console.log("func1=", func1);
+
+// let s = "gowtham";
+
+// console.log("s=", s);
+// console.log("proto of s=", s.__proto__);
+
+// let a = 10;
+
+// console.log("a=", a);
+// console.log("proto of a", a.__proto__);
 
 // ------------------------------------------------------------------------------
