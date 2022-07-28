@@ -51,10 +51,202 @@
 
 // ********************************************************************* Hoisting ************************************
 
-console.log(b);
-console.log(c);
-console.log(a);
+// console.log(b);
+// console.log(c);
+// console.log(a);
 
-let a = 10;
-var b = 20;
-const c = 30;
+// let a = 10;
+// var b = 20;
+// const c = 30;
+
+// func6();
+
+// let func6 = function () {
+//   console.log("func2");
+// };
+
+// func7();
+
+// var func7 = () => {
+//   console.log("func7");
+// };
+
+// ---------------------------global object-------------------------
+
+// let a = 10;
+// var b = 20;
+// const c = 30;
+
+// let f1 = function () {
+//   let f1_a = 1;
+// };
+
+// f1();
+// console.log("window=", window);
+// console.log("window.b=", window.b);
+// console.log("window.a=", window.a);
+
+// ************************************ keyword "this" ***************************************
+
+// console.log("this=", this);
+
+// function f1() {
+//   console.log("In f1 function: this=", this);
+// }
+
+// f1();
+
+// -----------------------------------------------------------------------------------------------
+
+// var a = 100;
+// {
+//   let a = 10;
+//   console.log("variable in inner scope : a=", a);
+// }
+// console.log(a);
+
+// -------------------------------------------------------------------------------------------------
+//let f1 = () => {
+//  console.log("this=", this);
+//};
+
+//f1();
+
+//------------------------------------------------------------------------------------------------------
+
+//function f1()
+//{
+
+//	var i;
+//	for( i=0;i<5;++i)
+//	{
+//		console.log('this=',this);
+//		console.log(i);
+//	}
+//	console.log('this=',this);
+//	console.log('after for loop i=',i);
+
+//}
+
+//f1();
+//console.log('after f1 function i=',i);
+//console.log('this=',this);
+
+//------------------------------------------------------------------------------------------------------
+
+// let f1=()=>{
+// 	var a=10;
+// 	console.log(this);
+
+// 	};
+// f1();
+
+// let f2=function()
+// {
+// 	var a=20;
+// 	console.log(this);
+// }
+// f2();
+
+// function f3()
+// {
+// 	var a=30;
+// 	console.log(this);
+// }
+// f3();
+
+//------------------------------------------------------------------------------------------------------
+// setTimeout(() => {
+//   console.log("timer");
+// }, 5000);
+
+// let x = (y) => {
+//   console.log("x");
+//   y();
+// };
+// x(function () {
+//   console.log("y");
+// });
+
+//------------------------------------------------------------------------------------------------------
+
+// function attachEventListener() {
+//   let count = 0;
+
+//   document.getElementById("btn1").addEventListener("click", function xyz() {
+//     console.log("button clicked");
+//     console.log("count", ++count);
+//   });
+// }
+
+// attachEventListener();
+
+//------------------------------------------------------------------------------------------------------
+
+// let a = 10;
+// console.log(a);
+
+//------------------------------------------------------------------------------------------------------
+
+// call in javascript
+
+// let obj1 = {
+//   first: "gowtham",
+//   last: "karthick",
+// };
+
+// let obj2 = { first: "akshay", last: "saini" };
+
+// let fullName = function () {
+//   console.log(this);
+//   console.log(`${this.first} ${this.last}`);
+// };
+
+// fullName.call(obj1);
+
+// fullName.call(obj2);
+
+//------------------------------------------------------------------------------------------------------
+
+// function fun() {
+//   console.log(this);
+// }
+
+// fun();
+// fun.call(obj1);
+
+//------------------------------------------------------------------------------------------------------
+
+// let obj3 = { name: "akshay", nickName: " saini" };
+
+// console.log(obj3);
+
+//------------------------------------------------------------------------------------------------------
+
+let obj1 = {
+  first: "gowtham",
+  last: "karthick",
+};
+
+let obj2 = { first: "akshay", last: "saini" };
+
+// let fullName = function () {
+//   console.log(this);
+//   console.log(`${this.first} ${this.last}`);
+// };
+
+// fullName();
+// fullName.call(obj1);
+// fullName.call(obj2);
+
+// let greet = function (greeting) {
+//   console.log(`${greeting} ${this.first}`);
+// };
+
+// greet.call(obj1, "hello");
+// greet.apply(obj1, ["hello"]);
+
+// let bindedFunc = greet.bind(obj1, "hello");
+// bindedFunc();
+
+//------------------------------------------------------------------------------------------------------
