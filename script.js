@@ -331,25 +331,89 @@
 
 // ------------------------------------------------------------------------------
 
-document.getElementById("grandParent").addEventListener(
-  "click",
-  (e) => {
-    console.log("grandParent");
-  },
-  false
-);
+// EVENT BUBBLING
 
-document.getElementById("parent").addEventListener(
-  "click",
-  (e) => {
-    console.log("parent");
-  },
-  false
-);
-document.getElementById("child").addEventListener(
-  "click",
-  (e) => {
-    console.log("child");
-  },
-  false
-);
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//   },
+//   false
+// );
+
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//   },
+//   false
+// );
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+//   },
+//   false
+// );
+
+// ------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------
+
+// EVENT CAPTURING
+
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//   },
+//   true
+// );
+
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//   },
+//   true
+// );
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+//   },
+//   true
+// );
+
+// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+// EVENT BUBBLING
+
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//   },
+//   false
+// );
+
+// EVENT CAPTURING
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//   },
+//   true
+// );
+
+// EVENT CAPTURING
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+//   },
+//   true
+// );
+
+// ------------------------------------------------------------------------------
