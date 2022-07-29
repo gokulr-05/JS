@@ -459,32 +459,94 @@
 
 // EVENT CAPTURING
 
-document.getElementById("grandParent").addEventListener(
-  "click",
-  (e) => {
-    console.log("grandParent");
-    // to stop propagation
-    e.stopPropagation();
-  },
-  true
-);
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//     // to stop propagation
+//     e.stopPropagation();
+//   },
+//   true
+// );
 
 // EVENT CAPTURING
-document.getElementById("parent").addEventListener(
-  "click",
-  (e) => {
-    console.log("parent");
-  },
-  true
-);
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//   },
+//   true
+// );
 
 // EVENT CAPTURING
-document.getElementById("child").addEventListener(
-  "click",
-  (e) => {
-    console.log("child");
-  },
-  true
-);
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+//   },
+//   true
+// );
 
 // ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+// EVENT DELEGATION
+
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//     console.log(e);
+//   },
+//   true
+// );
+
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//     console.log(e);
+//   },
+//   true
+// );
+
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+//     console.log(e);
+//   },
+//   true
+// );
+
+// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+// EVENT DELEGATION
+
+// document.getElementById("grandParent").addEventListener("keypress", (e) => {
+//   console.log(e);
+// });
+
+// ------------------------------------------------------------------------------
+
+// EVENT DELEGATION
+
+document.getElementById("ul1").addEventListener(
+  "click",
+  (e) => {
+    console.log(e);
+    let text = e.target.innerText;
+
+    console.log(`${text} is clicked`);
+  },
+  false
+);
+
+document.getElementById("li1").addEventListener(
+  "click",
+  () => {
+    console.log("li1");
+  },
+  false
+);
