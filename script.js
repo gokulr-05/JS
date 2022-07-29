@@ -532,21 +532,44 @@
 
 // EVENT DELEGATION
 
-document.getElementById("ul1").addEventListener(
-  "click",
-  (e) => {
-    console.log(e);
-    let text = e.target.innerText;
+// document.getElementById("ul1").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log(e);
+//     let text = e.target.innerText;
 
-    console.log(`${text} is clicked`);
-  },
-  false
-);
+//     console.log(`${text} is clicked`);
+//   },
+//   false
+// );
 
-document.getElementById("li1").addEventListener(
-  "click",
-  () => {
-    console.log("li1");
-  },
-  false
-);
+// document.getElementById("li1").addEventListener(
+//   "click",
+//   () => {
+//     console.log("li1");
+//   },
+//   false
+// );
+
+// DEBOUNCING IN JAVASCRIPT
+
+// MY OWN DEBOUNCING LOGIC
+
+let counter = 0;
+let prev = 0,
+  curr;
+function inp() {
+  let d = new Date();
+
+  curr = d.getTime();
+
+  // console.log(d.getTime());
+
+  if (curr - prev > 500) {
+    console.log("data fetched....", ++counter);
+  }
+
+  if (counter > 0) {
+    prev = curr;
+  }
+}
