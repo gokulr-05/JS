@@ -322,3 +322,34 @@
 // console.log("proto of a", a.__proto__);
 
 // ------------------------------------------------------------------------------
+
+// Function.prototype.mine = function () {
+//   console.log("mine function is executed");
+// };
+
+// let fun1 = () => {};
+
+// ------------------------------------------------------------------------------
+
+document.getElementById("grandParent").addEventListener(
+  "click",
+  (e) => {
+    console.log("grandParent");
+  },
+  false
+);
+
+document.getElementById("parent").addEventListener(
+  "click",
+  (e) => {
+    console.log("parent");
+  },
+  false
+);
+document.getElementById("child").addEventListener(
+  "click",
+  (e) => {
+    console.log("child");
+  },
+  false
+);
