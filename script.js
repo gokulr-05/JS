@@ -425,33 +425,66 @@
 
 // EVENT BUBBLING
 
+// document.getElementById("grandParent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("grandParent");
+//   },
+//   false
+// );
+
+// EVENT BUBBLING
+// document.getElementById("parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("parent");
+//   },
+//   false
+// );
+
+// EVENT BUBBLING
+// document.getElementById("child").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("child");
+
+//     // to stop propagation
+//     e.stopPropagation();
+//   },
+//   false
+// );
+
+// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+// EVENT CAPTURING
+
 document.getElementById("grandParent").addEventListener(
   "click",
   (e) => {
     console.log("grandParent");
+    // to stop propagation
+    e.stopPropagation();
   },
-  false
+  true
 );
 
-// EVENT BUBBLING
+// EVENT CAPTURING
 document.getElementById("parent").addEventListener(
   "click",
   (e) => {
     console.log("parent");
   },
-  false
+  true
 );
 
-// EVENT BUBBLING
+// EVENT CAPTURING
 document.getElementById("child").addEventListener(
   "click",
   (e) => {
     console.log("child");
-
-    // to stop propagation
-    e.stopPropagation();
   },
-  false
+  true
 );
 
 // ------------------------------------------------------------------------------
