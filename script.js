@@ -338,7 +338,7 @@
 //   (e) => {
 //     console.log("grandParent");
 //   },
-//   false
+//   true
 // );
 
 // document.getElementById("parent").addEventListener(
@@ -355,6 +355,10 @@
 //   },
 //   false
 // );
+
+// document.getElementById("btn").addEventListener("click", () => {
+//   console.log("button clicked");
+// });
 
 // ------------------------------------------------------------------------------
 
@@ -415,5 +419,39 @@
 //   },
 //   true
 // );
+
+// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+// EVENT BUBBLING
+
+document.getElementById("grandParent").addEventListener(
+  "click",
+  (e) => {
+    console.log("grandParent");
+  },
+  false
+);
+
+// EVENT BUBBLING
+document.getElementById("parent").addEventListener(
+  "click",
+  (e) => {
+    console.log("parent");
+  },
+  false
+);
+
+// EVENT BUBBLING
+document.getElementById("child").addEventListener(
+  "click",
+  (e) => {
+    console.log("child");
+
+    // to stop propagation
+    e.stopPropagation();
+  },
+  false
+);
 
 // ------------------------------------------------------------------------------
