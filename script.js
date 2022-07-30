@@ -625,3 +625,19 @@ d1.addEventListener(
     console.log("debounce by add event listener");
   }, 1000)
 );
+
+// ------------------------------------------------------------------------------
+
+let dummy = function (func, delay) {
+  return () => {
+    let timer;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, arguments);
+    }, delay);
+  };
+};
+
+let dummy1 = dummy(() => {
+  console.log("dummy fetching");
+}, 1000);
