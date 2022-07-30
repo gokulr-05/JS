@@ -580,7 +580,8 @@
 
 // let fun1 = () => {
 //   console.log("this=", this);
-//   console.log("argument=", arguments[0]);
+//   console.log("argument=", arguments);
+//   // console.log("argument=", arguments[0]);
 // };
 
 // let fun2 = function () {
@@ -595,5 +596,23 @@
 // fun2(10, 20, 30);
 // fun3(10, 20, 30);
 // fun1(10, 20, 30);
+
+// ------------------------------------------------------------------------------
+
+// DEBOUNCING
+
+let debounce = (func, delay) => {
+  let debounceTimer;
+  return function () {
+    let context = this;
+    let args = arguments;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => func.apply(context, args), delay);
+  };
+};
+
+let dd = debounce(function () {
+  console.log("debounce function executed");
+}, 1000);
 
 // ------------------------------------------------------------------------------
