@@ -555,21 +555,45 @@
 
 // MY OWN DEBOUNCING LOGIC
 
-let counter = 0;
-let prev = 0,
-  curr;
-function inp() {
-  let d = new Date();
+// let counter = 0;
+// let prev = 0,
+//   curr;
+// function inp() {
+//   let d = new Date();
 
-  curr = d.getTime();
+//   curr = d.getTime();
 
-  // console.log(d.getTime());
+// console.log(d.getTime());
 
-  if (curr - prev > 500) {
-    console.log("data fetched....", ++counter);
-  }
+//   if (curr - prev > 500) {
+//     console.log("data fetched....", ++counter);
+//   }
 
-  if (counter > 0) {
-    prev = curr;
-  }
-}
+//   if (counter > 0) {
+//     prev = curr;
+//   }
+// }
+
+// ------------------------------------------------------------------------------
+
+// ARGUMENTS IN ARROW FUNCTION
+
+// let fun1 = () => {
+//   console.log("this=", this);
+//   console.log("argument=", arguments[0]);
+// };
+
+// let fun2 = function () {
+//   console.log("arguments in function expression=", arguments[0]);
+//   console.log("arguments in function expression=", arguments);
+// };
+
+// function fun3() {
+//   console.log("arguments in function declaration=", arguments);
+// }
+
+// fun2(10, 20, 30);
+// fun3(10, 20, 30);
+// fun1(10, 20, 30);
+
+// ------------------------------------------------------------------------------
