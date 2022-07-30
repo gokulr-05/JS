@@ -616,3 +616,12 @@ let dd = debounce(function () {
 }, 1000);
 
 // ------------------------------------------------------------------------------
+
+let d1 = document.getElementById("d1");
+
+d1.addEventListener(
+  "keyup",
+  debounce(function () {
+    console.log("debounce by add event listener");
+  }, 1000)
+);
