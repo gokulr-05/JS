@@ -717,6 +717,7 @@ let testingDebounce = testingDebounce1(function () {
 
 // THROTTLING
 // MY OWN TRY
+// WINDOW RESIZING
 
 let betterResize = function (func, delay) {
   let timerVariable,
@@ -736,6 +737,60 @@ window.addEventListener(
   "resize",
   betterResize(() => {
     console.log("resizing...");
+  }, 1000)
+);
+
+// ------------------------------------------------------------------------------
+// THROTTLING
+// MY OWN TRY
+// BUTTON CLICK
+
+let throttleBtnFunc = function (func, delay) {
+  let bool = true;
+  return function () {
+    if (bool === true) {
+      setTimeout(() => {
+        func.apply(this, arguments);
+        bool = true;
+      }, delay);
+      bool = false;
+    }
+  };
+};
+
+let throttleBtn = document.getElementById("throttleBtn");
+throttleBtn.addEventListener(
+  "click",
+  throttleBtnFunc(function () {
+    console.log("Button Clicked");
+  }, 1000)
+);
+
+// ------------------------------------------------------------------------------
+// THROTTLING
+// MY OWN TRY
+// SCROLLING
+
+let throttleScroll = function (func, delay) {
+  let bool = true;
+
+  return function (e) {
+    if (bool === true) {
+      setTimeout(() => {
+        console.log();
+        func.apply(this, arguments);
+        bool = true;
+      }, delay);
+      bool = false;
+    }
+  };
+};
+
+window.addEventListener(
+  "scroll",
+  throttleScroll(function () {
+    console.log("scrolling...");
+    console.log(window.scrollY);
   }, 1000)
 );
 
