@@ -641,3 +641,62 @@ let dummy = function (func, delay) {
 let dummy1 = dummy(() => {
   console.log("dummy fetching");
 }, 1000);
+
+// ------------------------------------------------------------------------------
+// my own try
+
+let testingDebounce1 = function (func, delay) {
+  let debounceTimer;
+
+  return function () {
+    let context = this;
+    let args = arguments;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  };
+};
+
+let testingDebounce = testingDebounce1(function () {
+  console.log("Testing Debounce");
+}, 1000);
+
+// ------------------------------------------------------------------------------
+// MY OWN THROTTLING
+
+let testThrottle1 = function (func, delay) {
+  let prev = 0,
+    curr;
+  return function (e) {
+    let d = new Date();
+    curr = d.getTime();
+
+    if (curr - prev > delay) {
+      prev = curr;
+      func(e.target.value);
+      // console.log(e.target.value);
+    }
+  };
+};
+
+let testthrottlingEle = document.getElementById("testthrottle");
+
+testthrottlingEle.addEventListener(
+  "keyup",
+  testThrottle1(() => {
+    console.log(`fetching data:`);
+  }, 1000)
+);
+
+// ------------------------------------------------------------------------------
+
+// let bdy = document.getElementById("div1");
+// window.addEventListener("scroll", () => {
+//   console.log(window.scrollX, window.scrollY);
+// });
+
+let div1 = document.getElementById("div1");
+div1.addEventListener("scroll", (e) => {
+  console.log(e.target.scrollTop);
+});
