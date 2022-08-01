@@ -720,12 +720,13 @@ let testingDebounce = testingDebounce1(function () {
 // WINDOW RESIZING
 
 let betterResize = function (func, delay) {
-  let timerVariable,
-    bool = true;
+  let bool = true;
   return function () {
+    let context = this;
+    let args = arguments;
     if (bool === true) {
       setTimeout(() => {
-        func.apply(this, arguments);
+        func.apply(context, args);
         bool = true;
       }, delay);
       bool = false;
@@ -748,9 +749,11 @@ window.addEventListener(
 let throttleBtnFunc = function (func, delay) {
   let bool = true;
   return function () {
+    let context = this;
+    let args = arguments;
     if (bool === true) {
       setTimeout(() => {
-        func.apply(this, arguments);
+        func.apply(context, args);
         bool = true;
       }, delay);
       bool = false;
@@ -775,10 +778,12 @@ let throttleScroll = function (func, delay) {
   let bool = true;
 
   return function (e) {
+    let context = this;
+    let args = arguments;
     if (bool === true) {
       setTimeout(() => {
         console.log();
-        func.apply(this, arguments);
+        func.apply(context, args);
         bool = true;
       }, delay);
       bool = false;
