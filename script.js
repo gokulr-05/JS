@@ -665,29 +665,29 @@ let testingDebounce = testingDebounce1(function () {
 // ------------------------------------------------------------------------------
 // MY OWN THROTTLING
 
-let testThrottle1 = function (func, delay) {
-  let prev = 0,
-    curr;
-  return function (e) {
-    let d = new Date();
-    curr = d.getTime();
+// let testThrottle1 = function (func, delay) {
+//   let prev = 0,
+//     curr;
+//   return function (e) {
+//     let d = new Date();
+//     curr = d.getTime();
 
-    if (curr - prev > delay) {
-      prev = curr;
-      func(e.target.value);
-      // console.log(e.target.value);
-    }
-  };
-};
+//     if (curr - prev > delay) {
+//       prev = curr;
+//       func(e.target.value);
+//       // console.log(e.target.value);
+//     }
+//   };
+// };
 
-let testthrottlingEle = document.getElementById("testthrottle");
+// let testthrottlingEle = document.getElementById("testthrottle");
 
-testthrottlingEle.addEventListener(
-  "keyup",
-  testThrottle1(() => {
-    console.log(`fetching data:`);
-  }, 1000)
-);
+// testthrottlingEle.addEventListener(
+//   "keyup",
+//   testThrottle1(() => {
+//     console.log(`fetching data:`);
+//   }, 1000)
+// );
 
 // ------------------------------------------------------------------------------
 
@@ -696,7 +696,47 @@ testthrottlingEle.addEventListener(
 //   console.log(window.scrollX, window.scrollY);
 // });
 
-let div1 = document.getElementById("div1");
-div1.addEventListener("scroll", (e) => {
-  console.log(e.target.scrollTop);
-});
+// let div1 = document.getElementById("div1");
+// div1.addEventListener("scroll", (e) => {
+//   console.log(e);
+//   console.log(e.target.scrollTop);
+// });
+
+// window.addEventListener("resize", (e) => {
+//   console.log(e.target);
+//   console.log(
+//     e.target.screen.availHeight,
+//     e.target.screen.availWidth,
+//     e.target.screen.height,
+//     e.target.screen.width
+//   );
+//   console.log("resize");
+// });
+
+// ------------------------------------------------------------------------------
+
+// THROTTLING
+// MY OWN TRY
+
+let betterResize = function (func, delay) {
+  let timerVariable,
+    bool = true;
+  return function () {
+    if (bool === true) {
+      setTimeout(() => {
+        func.apply(this, arguments);
+        bool = true;
+      }, delay);
+      bool = false;
+    }
+  };
+};
+
+window.addEventListener(
+  "resize",
+  betterResize(() => {
+    console.log("resizing...");
+  }, 1000)
+);
+
+// ------------------------------------------------------------------------------
