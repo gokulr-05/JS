@@ -832,3 +832,22 @@ let f1 = function1.myBind(obj1, "TamilNadu");
 f1("Namakkal");
 
 // ------------------------------------------------------------------------------
+
+// datatype of function
+
+let a = () => {};
+let b = function () {};
+function c() {}
+let d = function e() {};
+console.log(typeof a === "function");
+console.log(typeof b);
+console.log(typeof c);
+console.log(typeof d);
+
+// ------------------------------------------------------------------------------
+// check if the arguments are valid or not
+
+let a1 = undefined;
+let a2 = 10;
+console.log(typeof a1 !== "undefined");
+console.log(typeof a2 !== "undefined");
