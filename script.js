@@ -782,7 +782,7 @@ let throttleScroll = function (func, delay) {
     let args = arguments;
     if (bool === true) {
       setTimeout(() => {
-        console.log();
+        // console.log();
         func.apply(context, args);
         bool = true;
       }, delay);
@@ -798,5 +798,37 @@ window.addEventListener(
     console.log(window.scrollY);
   }, 1000)
 );
+
+// ------------------------------------------------------------------------------
+
+// this button
+
+let thisButton = document.getElementById("thisKeyword");
+thisButton.addEventListener("click", function () {
+  console.log("this: ", this);
+});
+
+// ------------------------------------------------------------------------------
+
+//Polyfill for bind method
+let obj1 = { name: "obj1" };
+let obj2 = { name: "obj2" };
+let function1 = function (state, district) {
+  console.log(`My name is ${this.name} ${district} ${state}`);
+};
+
+Function.prototype.myBind = function (...args) {
+  let func = this;
+  let obj = args[0];
+  let arg1 = args.slice(1);
+
+  return function () {
+    func.call(obj, ...arg1, ...arguments);
+  };
+};
+
+let f1 = function1.myBind(obj1, "TamilNadu");
+
+f1("Namakkal");
 
 // ------------------------------------------------------------------------------
