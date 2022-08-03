@@ -851,3 +851,123 @@ let a1 = undefined;
 let a2 = 10;
 console.log(typeof a1 !== "undefined");
 console.log(typeof a2 !== "undefined");
+
+// ------------------------------------------------------------------------------
+
+// let n = null;
+// console.log(typeof n);
+// let u;
+// console.log(typeof u);
+
+console.log("null == undefined=", null == undefined);
+console.log("null === undefined=", null === undefined);
+
+console.log("10==100:", 10 == 100);
+
+// ------------------------------------------------------------------------------
+
+// // removeEventListener
+
+// let bool1 = false;
+// let count = 0;
+// let rmv = document.getElementById("removeEventListener");
+// rmv.addEventListener("click", (e) => {
+//   console.log("remove-", ++count);
+//   if (count > 5) {
+//     rmv.removeEventListener("click", () => {});
+//   }
+// });
+
+// ------------------------------------------------------------------------------
+
+// FLATTEN THE ARRAY
+
+// let arr1 = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6, 7, 8, 9],
+//   [10, 11, 12],
+// ];
+
+// let arr2 = [];
+
+// for (let i of arr1) {
+//   arr2 = [...arr2, ...i];
+// }
+
+// arr1 = [...arr2];
+
+// console.log(arr1);
+// console.log(arr2);
+
+// let arr3 = [[[1, 2]], [[[3, 4]]], [5]];
+
+// console.log("flattening using flat():");
+// console.log(arr3.flat(10));
+
+// flatMap()
+// console.log("flatMap():");
+
+// let arr4 = [[1], [[2]], , , , , , [4], 5];
+
+// let arr4Res = arr4.flatMap((val, ind, arr) => {
+//   return [[val * 2]];
+// });
+// console.log(arr4Res);
+
+// let arr4Res = arr4
+//   .map((val, ind, arr) => {
+//     return [[val * 2]];
+//   })
+//   .flat(2);
+// console.log(arr4Res);
+
+// let arr4Res = arr4.flat(9);
+
+// console.log(arr4Res);
+
+// ------------------------------------------------------------------------------
+
+// CUSTOM FLAT METHOD TO FLATTEN THE ARRAY
+
+// METHOD 1: USING USER DEFINED FUNCTION
+
+let flatArr1 = [[1, 2], 3, [4, 5, 6], [[[7, 8, 9]]]];
+
+let myFlat = function (arr, depth) {
+  let array1 = [];
+  arr.map((val) => {
+    if (Array.isArray(val) && depth > 0) {
+      array1.push(...myFlat(val, depth - 1));
+    } else {
+      array1.push(val);
+    }
+  });
+
+  return array1;
+};
+
+let flatRes = myFlat(flatArr1, 3);
+
+console.log("flatRes=", flatRes);
+
+// METHOD 2: USING PROTOTYPE
+
+Array.prototype.myFlat1 = function (depth) {
+  let arr = [...this];
+  // console.log("this=", this);
+
+  let array1 = [];
+  arr.map((val) => {
+    if (Array.isArray(val) && depth > 0) {
+      array1.push(...val.myFlat1(depth - 1));
+    } else {
+      array1.push(val);
+    }
+  });
+
+  return array1;
+};
+
+let res = flatArr1.myFlat1(3);
+console.log(res);
