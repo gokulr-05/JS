@@ -934,7 +934,7 @@ console.log("10==100:", 10 == 100);
 
 let flatArr1 = [[1, 2], 3, [4, 5, 6], [[[7, 8, 9]]]];
 
-let myFlat = function (arr, depth) {
+let myFlat = function (arr, depth = 1) {
   let array1 = [];
   arr.map((val) => {
     if (Array.isArray(val) && depth > 0) {
@@ -950,10 +950,11 @@ let myFlat = function (arr, depth) {
 let flatRes = myFlat(flatArr1, 3);
 
 console.log("flatRes=", flatRes);
+// ------------------------------------------------------------------------------
 
 // METHOD 2: USING PROTOTYPE
 
-Array.prototype.myFlat1 = function (depth) {
+Array.prototype.myFlat1 = function (depth = 1) {
   let arr = [...this];
   // console.log("this=", this);
 
@@ -971,3 +972,201 @@ Array.prototype.myFlat1 = function (depth) {
 
 let res = flatArr1.myFlat1(3);
 console.log(res);
+
+// ------------------------------------------------------------------------------
+
+let flat1 = [[1], [2, 3], [[4, 5]]];
+
+let flat2 = [].concat(...flat1);
+console.log("flat2=", flat2);
+
+let concat1 = [1, 2];
+let concat2 = [3, 4];
+let concat3 = [[5, 6]];
+
+let concatt = concat1.concat(concat2, concat3);
+console.log("concatt=", concatt);
+
+// ------------------------------------------------------------------------------
+// let , var , const
+
+var vara = 10;
+var vara = 20;
+console.log("vara=", vara);
+
+// ------------------------------------------------------------------------------
+
+// PREDICT THE OUTPUT
+
+function timeoutFunc() {
+  for (var i = 0; i < 3; ++i) {
+    setTimeout(function log() {
+      console.log(i);
+    }, i * 1000);
+  }
+}
+// timeoutFunc();
+
+// ------------------------------------------------------------------------------
+
+// settimeout with closure
+
+function timeoutFunc1Timer(variable1) {
+  setTimeout(function log1() {
+    console.log("setTimeout using closure:", variable1);
+  });
+}
+
+function timeoutFunc1() {
+  for (var i = 0; i < 3; ++i) {
+    timeoutFunc1Timer(i);
+  }
+}
+
+timeoutFunc1();
+
+// ------------------------------------------------------------------------------
+
+// call , apply , bind
+
+let obj6 = {
+  name: "gokul",
+  wishes: function (word) {
+    console.log(`${this.name} says hello ${word}`);
+  },
+};
+
+let obj7 = { name: "gowtham" };
+
+obj6.wishes.call(obj7, "world");
+obj6.wishes.apply(obj7, ["world"]);
+let bindedFunc = obj6.wishes.bind(obj7, "world");
+bindedFunc();
+
+// ------------------------------------------------------------------------------
+
+//polyfill for composition of the function
+// very very important
+
+let obj8 = { name: "gokul" };
+
+let extractName = function (obj) {
+  return obj.name;
+};
+
+let upper = function (str1) {
+  return str1.toUpperCase();
+};
+
+function addFive(a) {
+  return a + 5;
+}
+
+function subtractTwo(a) {
+  return a - 2;
+}
+
+function multiplyFour(a) {
+  return a * 4;
+}
+
+let composition = function (...functions) {
+  return function (val1) {
+    let finalValue = functions.reduceRight((acc, fn) => {
+      return fn(acc);
+    }, val1);
+
+    return finalValue;
+  };
+};
+
+let compose2 = composition(upper, extractName);
+let compose1 = composition(addFive, subtractTwo, multiplyFour);
+let resultValue2 = compose2(obj8);
+let resultValue1 = compose1(5);
+
+console.log("result value=", resultValue2);
+console.log("result value1=", resultValue1);
+
+// ------------------------------------------------------------------------------
+// polyfill for compose method without using reduceRight
+// very very important
+
+let composition2 = function (...funcs) {
+  return function (x) {
+    let arg = x;
+    for (let i = funcs.length - 1; i >= 0; --i) {
+      arg = funcs[i](arg);
+    }
+
+    return arg;
+  };
+};
+
+let compose3 = composition2(upper, extractName);
+let compose4 = composition2(addFive, subtractTwo, multiplyFour);
+let resultValue3 = compose3(obj8);
+let resultValue4 = compose4(5);
+console.log("polyfill composition without reduceRight: ", resultValue3);
+console.log("polyfill composition without reduceRight: ", resultValue4);
+
+// ------------------------------------------------------------------------------
+
+// polyfill for pipe() method
+
+// method 1: by using reduce() method
+
+let piping1 = function (...funcs) {
+  return function (arg) {
+    let res = funcs.reduce((acc, fn) => {
+      return fn(acc);
+    }, arg);
+
+    return res;
+  };
+};
+
+let pipe1 = piping1(extractName, upper);
+let pipe2 = piping1(multiplyFour, subtractTwo, addFive);
+
+let resultValue5 = pipe1(obj8);
+let resultValue6 = pipe2(5);
+console.log("piped value: ", resultValue5);
+console.log("piped value: ", resultValue6);
+
+// ------------------------------------------------------------------------------
+
+// method 2: piping without using reduce()
+
+let piping2 = function (...funcs) {
+  return function (arg) {
+    let result = arg;
+    for (let i = 0; i < funcs.length; ++i) {
+      result = funcs[i](result);
+    }
+
+    return result;
+  };
+};
+
+let pipe3 = piping2(extractName, upper);
+let resultValue7 = pipe3(obj8);
+console.log("piping without reduce(): ", resultValue7);
+
+let pipe4 = piping2(multiplyFour, subtractTwo, addFive);
+let resultValue8 = pipe4(5);
+console.log("piping without reduce(): ", resultValue8);
+
+// ------------------------------------------------------------------------------
+// PROMISE
+
+console.log("Promise:");
+
+let fetching1 = function async() {
+  let response = fetch("https://627f71ccbe1ccb0a465fd36c.mockapi.io/students");
+  console.log("response promise=", response);
+  console.log("typeof response promise=", typeof response);
+  // let data = response.json();
+};
+
+fetching1();
