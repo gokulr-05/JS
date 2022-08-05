@@ -601,66 +601,66 @@
 
 // DEBOUNCING
 
-let debounce = (func, delay) => {
-  let debounceTimer;
-  return function () {
-    let context = this;
-    let args = arguments;
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => func.apply(context, args), delay);
-  };
-};
+// let debounce = (func, delay) => {
+//   let debounceTimer;
+//   return function () {
+//     let context = this;
+//     let args = arguments;
+//     clearTimeout(debounceTimer);
+//     debounceTimer = setTimeout(() => func.apply(context, args), delay);
+//   };
+// };
 
-let dd = debounce(function () {
-  console.log("debounce function executed");
-}, 1000);
-
-// ------------------------------------------------------------------------------
-
-let d1 = document.getElementById("d1");
-
-d1.addEventListener(
-  "keyup",
-  debounce(function () {
-    console.log("debounce by add event listener");
-  }, 1000)
-);
+// let dd = debounce(function () {
+//   console.log("debounce function executed");
+// }, 1000);
 
 // ------------------------------------------------------------------------------
 
-let dummy = function (func, delay) {
-  return () => {
-    let timer;
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, arguments);
-    }, delay);
-  };
-};
+// let d1 = document.getElementById("d1");
 
-let dummy1 = dummy(() => {
-  console.log("dummy fetching");
-}, 1000);
+// d1.addEventListener(
+//   "keyup",
+//   debounce(function () {
+//     console.log("debounce by add event listener");
+//   }, 1000)
+// );
+
+// ------------------------------------------------------------------------------
+
+// let dummy = function (func, delay) {
+//   return () => {
+//     let timer;
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       func.apply(this, arguments);
+//     }, delay);
+//   };
+// };
+
+// let dummy1 = dummy(() => {
+//   console.log("dummy fetching");
+// }, 1000);
 
 // ------------------------------------------------------------------------------
 // my own try
 
-let testingDebounce1 = function (func, delay) {
-  let debounceTimer;
+// let testingDebounce1 = function (func, delay) {
+//   let debounceTimer;
 
-  return function () {
-    let context = this;
-    let args = arguments;
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      func.apply(context, args);
-    }, delay);
-  };
-};
+//   return function () {
+//     let context = this;
+//     let args = arguments;
+//     clearTimeout(debounceTimer);
+//     debounceTimer = setTimeout(() => {
+//       func.apply(context, args);
+//     }, delay);
+//   };
+// };
 
-let testingDebounce = testingDebounce1(function () {
-  console.log("Testing Debounce");
-}, 1000);
+// let testingDebounce = testingDebounce1(function () {
+//   console.log("Testing Debounce");
+// }, 1000);
 
 // ------------------------------------------------------------------------------
 // MY OWN THROTTLING
@@ -719,138 +719,138 @@ let testingDebounce = testingDebounce1(function () {
 // MY OWN TRY
 // WINDOW RESIZING
 
-let betterResize = function (func, delay) {
-  let bool = true;
-  return function () {
-    let context = this;
-    let args = arguments;
-    if (bool === true) {
-      setTimeout(() => {
-        func.apply(context, args);
-        bool = true;
-      }, delay);
-      bool = false;
-    }
-  };
-};
+// let betterResize = function (func, delay) {
+//   let bool = true;
+//   return function () {
+//     let context = this;
+//     let args = arguments;
+//     if (bool === true) {
+//       setTimeout(() => {
+//         func.apply(context, args);
+//         bool = true;
+//       }, delay);
+//       bool = false;
+//     }
+//   };
+// };
 
-window.addEventListener(
-  "resize",
-  betterResize(() => {
-    console.log("resizing...");
-  }, 1000)
-);
+// window.addEventListener(
+//   "resize",
+//   betterResize(() => {
+//     console.log("resizing...");
+//   }, 1000)
+// );
 
 // ------------------------------------------------------------------------------
 // THROTTLING
 // MY OWN TRY
 // BUTTON CLICK
 
-let throttleBtnFunc = function (func, delay) {
-  let bool = true;
-  return function () {
-    let context = this;
-    let args = arguments;
-    if (bool === true) {
-      setTimeout(() => {
-        func.apply(context, args);
-        bool = true;
-      }, delay);
-      bool = false;
-    }
-  };
-};
+// let throttleBtnFunc = function (func, delay) {
+//   let bool = true;
+//   return function () {
+//     let context = this;
+//     let args = arguments;
+//     if (bool === true) {
+//       setTimeout(() => {
+//         func.apply(context, args);
+//         bool = true;
+//       }, delay);
+//       bool = false;
+//     }
+//   };
+// };
 
-let throttleBtn = document.getElementById("throttleBtn");
-throttleBtn.addEventListener(
-  "click",
-  throttleBtnFunc(function () {
-    console.log("Button Clicked");
-  }, 1000)
-);
+// let throttleBtn = document.getElementById("throttleBtn");
+// throttleBtn.addEventListener(
+//   "click",
+//   throttleBtnFunc(function () {
+//     console.log("Button Clicked");
+//   }, 1000)
+// );
 
 // ------------------------------------------------------------------------------
 // THROTTLING
 // MY OWN TRY
 // SCROLLING
 
-let throttleScroll = function (func, delay) {
-  let bool = true;
+// let throttleScroll = function (func, delay) {
+//   let bool = true;
 
-  return function (e) {
-    let context = this;
-    let args = arguments;
-    if (bool === true) {
-      setTimeout(() => {
-        // console.log();
-        func.apply(context, args);
-        bool = true;
-      }, delay);
-      bool = false;
-    }
-  };
-};
+//   return function (e) {
+//     let context = this;
+//     let args = arguments;
+//     if (bool === true) {
+//       setTimeout(() => {
+//         // console.log();
+//         func.apply(context, args);
+//         bool = true;
+//       }, delay);
+//       bool = false;
+//     }
+//   };
+// };
 
-window.addEventListener(
-  "scroll",
-  throttleScroll(function () {
-    console.log("scrolling...");
-    console.log(window.scrollY);
-  }, 1000)
-);
+// window.addEventListener(
+//   "scroll",
+//   throttleScroll(function () {
+//     console.log("scrolling...");
+//     console.log(window.scrollY);
+//   }, 1000)
+// );
 
 // ------------------------------------------------------------------------------
 
 // this button
 
-let thisButton = document.getElementById("thisKeyword");
-thisButton.addEventListener("click", function () {
-  console.log("this: ", this);
-});
+// let thisButton = document.getElementById("thisKeyword");
+// thisButton.addEventListener("click", function () {
+//   console.log("this: ", this);
+// });
 
 // ------------------------------------------------------------------------------
 
 //Polyfill for bind method
-let obj1 = { name: "obj1" };
-let obj2 = { name: "obj2" };
-let function1 = function (state, district) {
-  console.log(`My name is ${this.name} ${district} ${state}`);
-};
+// let obj1 = { name: "obj1" };
+// let obj2 = { name: "obj2" };
+// let function1 = function (state, district) {
+//   console.log(`My name is ${this.name} ${district} ${state}`);
+// };
 
-Function.prototype.myBind = function (...args) {
-  let func = this;
-  let obj = args[0];
-  let arg1 = args.slice(1);
+// Function.prototype.myBind = function (...args) {
+//   let func = this;
+//   let obj = args[0];
+//   let arg1 = args.slice(1);
 
-  return function () {
-    func.call(obj, ...arg1, ...arguments);
-  };
-};
+//   return function () {
+//     func.call(obj, ...arg1, ...arguments);
+//   };
+// };
 
-let f1 = function1.myBind(obj1, "TamilNadu");
+// let f1 = function1.myBind(obj1, "TamilNadu");
 
-f1("Namakkal");
+// f1("Namakkal");
 
 // ------------------------------------------------------------------------------
 
 // datatype of function
 
-let a = () => {};
-let b = function () {};
-function c() {}
-let d = function e() {};
-console.log(typeof a === "function");
-console.log(typeof b);
-console.log(typeof c);
-console.log(typeof d);
+// let a = () => {};
+// let b = function () {};
+// function c() {}
+// let d = function e() {};
+// console.log(typeof a === "function");
+// console.log(typeof b);
+// console.log(typeof c);
+// console.log(typeof d);
 
 // ------------------------------------------------------------------------------
 // check if the arguments are valid or not
 
-let a1 = undefined;
-let a2 = 10;
-console.log(typeof a1 !== "undefined");
-console.log(typeof a2 !== "undefined");
+// let a1 = undefined;
+// let a2 = 10;
+// console.log(typeof a1 !== "undefined");
+// console.log(typeof a2 !== "undefined");
 
 // ------------------------------------------------------------------------------
 
@@ -859,10 +859,10 @@ console.log(typeof a2 !== "undefined");
 // let u;
 // console.log(typeof u);
 
-console.log("null == undefined=", null == undefined);
-console.log("null === undefined=", null === undefined);
+// console.log("null == undefined=", null == undefined);
+// console.log("null === undefined=", null === undefined);
 
-console.log("10==100:", 10 == 100);
+// console.log("10==100:", 10 == 100);
 
 // ------------------------------------------------------------------------------
 
@@ -932,183 +932,183 @@ console.log("10==100:", 10 == 100);
 
 // METHOD 1: USING USER DEFINED FUNCTION
 
-let flatArr1 = [[1, 2], 3, [4, 5, 6], [[[7, 8, 9]]]];
+// let flatArr1 = [[1, 2], 3, [4, 5, 6], [[[7, 8, 9]]]];
 
-let myFlat = function (arr, depth = 1) {
-  let array1 = [];
-  arr.map((val) => {
-    if (Array.isArray(val) && depth > 0) {
-      array1.push(...myFlat(val, depth - 1));
-    } else {
-      array1.push(val);
-    }
-  });
+// let myFlat = function (arr, depth = 1) {
+//   let array1 = [];
+//   arr.map((val) => {
+//     if (Array.isArray(val) && depth > 0) {
+//       array1.push(...myFlat(val, depth - 1));
+//     } else {
+//       array1.push(val);
+//     }
+//   });
 
-  return array1;
-};
+//   return array1;
+// };
 
-let flatRes = myFlat(flatArr1, 3);
+// let flatRes = myFlat(flatArr1, 3);
 
-console.log("flatRes=", flatRes);
+// console.log("flatRes=", flatRes);
 // ------------------------------------------------------------------------------
 
 // METHOD 2: USING PROTOTYPE
 
-Array.prototype.myFlat1 = function (depth = 1) {
-  let arr = [...this];
-  // console.log("this=", this);
+// Array.prototype.myFlat1 = function (depth = 1) {
+//   let arr = [...this];
+//   // console.log("this=", this);
 
-  let array1 = [];
-  arr.map((val) => {
-    if (Array.isArray(val) && depth > 0) {
-      array1.push(...val.myFlat1(depth - 1));
-    } else {
-      array1.push(val);
-    }
-  });
+//   let array1 = [];
+//   arr.map((val) => {
+//     if (Array.isArray(val) && depth > 0) {
+//       array1.push(...val.myFlat1(depth - 1));
+//     } else {
+//       array1.push(val);
+//     }
+//   });
 
-  return array1;
-};
+//   return array1;
+// };
 
-let res = flatArr1.myFlat1(3);
-console.log(res);
+// let res = flatArr1.myFlat1(3);
+// console.log(res);
 
 // ------------------------------------------------------------------------------
 
-let flat1 = [[1], [2, 3], [[4, 5]]];
+// let flat1 = [[1], [2, 3], [[4, 5]]];
 
-let flat2 = [].concat(...flat1);
-console.log("flat2=", flat2);
+// let flat2 = [].concat(...flat1);
+// console.log("flat2=", flat2);
 
-let concat1 = [1, 2];
-let concat2 = [3, 4];
-let concat3 = [[5, 6]];
+// let concat1 = [1, 2];
+// let concat2 = [3, 4];
+// let concat3 = [[5, 6]];
 
-let concatt = concat1.concat(concat2, concat3);
-console.log("concatt=", concatt);
+// let concatt = concat1.concat(concat2, concat3);
+// console.log("concatt=", concatt);
 
 // ------------------------------------------------------------------------------
 // let , var , const
 
-var vara = 10;
-var vara = 20;
-console.log("vara=", vara);
+// var vara = 10;
+// var vara = 20;
+// console.log("vara=", vara);
 
 // ------------------------------------------------------------------------------
 
 // PREDICT THE OUTPUT
 
-function timeoutFunc() {
-  for (var i = 0; i < 3; ++i) {
-    setTimeout(function log() {
-      console.log(i);
-    }, i * 1000);
-  }
-}
+// function timeoutFunc() {
+//   for (var i = 0; i < 3; ++i) {
+//     setTimeout(function log() {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
 // timeoutFunc();
 
 // ------------------------------------------------------------------------------
 
 // settimeout with closure
 
-function timeoutFunc1Timer(variable1) {
-  setTimeout(function log1() {
-    console.log("setTimeout using closure:", variable1);
-  });
-}
+// function timeoutFunc1Timer(variable1) {
+//   setTimeout(function log1() {
+//     console.log("setTimeout using closure:", variable1);
+//   });
+// }
 
-function timeoutFunc1() {
-  for (var i = 0; i < 3; ++i) {
-    timeoutFunc1Timer(i);
-  }
-}
+// function timeoutFunc1() {
+//   for (var i = 0; i < 3; ++i) {
+//     timeoutFunc1Timer(i);
+//   }
+// }
 
-timeoutFunc1();
+// timeoutFunc1();
 
 // ------------------------------------------------------------------------------
 
 // call , apply , bind
 
-let obj6 = {
-  name: "gokul",
-  wishes: function (word) {
-    console.log(`${this.name} says hello ${word}`);
-  },
-};
+// let obj6 = {
+//   name: "gokul",
+//   wishes: function (word) {
+//     console.log(`${this.name} says hello ${word}`);
+//   },
+// };
 
-let obj7 = { name: "gowtham" };
+// let obj7 = { name: "gowtham" };
 
-obj6.wishes.call(obj7, "world");
-obj6.wishes.apply(obj7, ["world"]);
-let bindedFunc = obj6.wishes.bind(obj7, "world");
-bindedFunc();
+// obj6.wishes.call(obj7, "world");
+// obj6.wishes.apply(obj7, ["world"]);
+// let bindedFunc = obj6.wishes.bind(obj7, "world");
+// bindedFunc();
 
 // ------------------------------------------------------------------------------
 
 //polyfill for composition of the function
 // very very important
 
-let obj8 = { name: "gokul" };
+// let obj8 = { name: "gokul" };
 
-let extractName = function (obj) {
-  return obj.name;
-};
+// let extractName = function (obj) {
+//   return obj.name;
+// };
 
-let upper = function (str1) {
-  return str1.toUpperCase();
-};
+// let upper = function (str1) {
+//   return str1.toUpperCase();
+// };
 
-function addFive(a) {
-  return a + 5;
-}
+// function addFive(a) {
+//   return a + 5;
+// }
 
-function subtractTwo(a) {
-  return a - 2;
-}
+// function subtractTwo(a) {
+//   return a - 2;
+// }
 
-function multiplyFour(a) {
-  return a * 4;
-}
+// function multiplyFour(a) {
+//   return a * 4;
+// }
 
-let composition = function (...functions) {
-  return function (val1) {
-    let finalValue = functions.reduceRight((acc, fn) => {
-      return fn(acc);
-    }, val1);
+// let composition = function (...functions) {
+//   return function (val1) {
+//     let finalValue = functions.reduceRight((acc, fn) => {
+//       return fn(acc);
+//     }, val1);
 
-    return finalValue;
-  };
-};
+//     return finalValue;
+//   };
+// };
 
-let compose2 = composition(upper, extractName);
-let compose1 = composition(addFive, subtractTwo, multiplyFour);
-let resultValue2 = compose2(obj8);
-let resultValue1 = compose1(5);
+// let compose2 = composition(upper, extractName);
+// let compose1 = composition(addFive, subtractTwo, multiplyFour);
+// let resultValue2 = compose2(obj8);
+// let resultValue1 = compose1(5);
 
-console.log("result value=", resultValue2);
-console.log("result value1=", resultValue1);
+// console.log("result value=", resultValue2);
+// console.log("result value1=", resultValue1);
 
 // ------------------------------------------------------------------------------
 // polyfill for compose method without using reduceRight
 // very very important
 
-let composition2 = function (...funcs) {
-  return function (x) {
-    let arg = x;
-    for (let i = funcs.length - 1; i >= 0; --i) {
-      arg = funcs[i](arg);
-    }
+// let composition2 = function (...funcs) {
+//   return function (x) {
+//     let arg = x;
+//     for (let i = funcs.length - 1; i >= 0; --i) {
+//       arg = funcs[i](arg);
+//     }
 
-    return arg;
-  };
-};
+//     return arg;
+//   };
+// };
 
-let compose3 = composition2(upper, extractName);
-let compose4 = composition2(addFive, subtractTwo, multiplyFour);
-let resultValue3 = compose3(obj8);
-let resultValue4 = compose4(5);
-console.log("polyfill composition without reduceRight: ", resultValue3);
-console.log("polyfill composition without reduceRight: ", resultValue4);
+// let compose3 = composition2(upper, extractName);
+// let compose4 = composition2(addFive, subtractTwo, multiplyFour);
+// let resultValue3 = compose3(obj8);
+// let resultValue4 = compose4(5);
+// console.log("polyfill composition without reduceRight: ", resultValue3);
+// console.log("polyfill composition without reduceRight: ", resultValue4);
 
 // ------------------------------------------------------------------------------
 
@@ -1116,57 +1116,277 @@ console.log("polyfill composition without reduceRight: ", resultValue4);
 
 // method 1: by using reduce() method
 
-let piping1 = function (...funcs) {
-  return function (arg) {
-    let res = funcs.reduce((acc, fn) => {
-      return fn(acc);
-    }, arg);
+// let piping1 = function (...funcs) {
+//   return function (arg) {
+//     let res = funcs.reduce((acc, fn) => {
+//       return fn(acc);
+//     }, arg);
 
-    return res;
-  };
-};
+//     return res;
+//   };
+// };
 
-let pipe1 = piping1(extractName, upper);
-let pipe2 = piping1(multiplyFour, subtractTwo, addFive);
+// let pipe1 = piping1(extractName, upper);
+// let pipe2 = piping1(multiplyFour, subtractTwo, addFive);
 
-let resultValue5 = pipe1(obj8);
-let resultValue6 = pipe2(5);
-console.log("piped value: ", resultValue5);
-console.log("piped value: ", resultValue6);
+// let resultValue5 = pipe1(obj8);
+// let resultValue6 = pipe2(5);
+// console.log("piped value: ", resultValue5);
+// console.log("piped value: ", resultValue6);
 
 // ------------------------------------------------------------------------------
 
 // method 2: piping without using reduce()
 
-let piping2 = function (...funcs) {
-  return function (arg) {
-    let result = arg;
-    for (let i = 0; i < funcs.length; ++i) {
-      result = funcs[i](result);
-    }
+// let piping2 = function (...funcs) {
+//   return function (arg) {
+//     let result = arg;
+//     for (let i = 0; i < funcs.length; ++i) {
+//       result = funcs[i](result);
+//     }
 
-    return result;
-  };
-};
+//     return result;
+//   };
+// };
 
-let pipe3 = piping2(extractName, upper);
-let resultValue7 = pipe3(obj8);
-console.log("piping without reduce(): ", resultValue7);
+// let pipe3 = piping2(extractName, upper);
+// let resultValue7 = pipe3(obj8);
+// console.log("piping without reduce(): ", resultValue7);
 
-let pipe4 = piping2(multiplyFour, subtractTwo, addFive);
-let resultValue8 = pipe4(5);
-console.log("piping without reduce(): ", resultValue8);
+// let pipe4 = piping2(multiplyFour, subtractTwo, addFive);
+// let resultValue8 = pipe4(5);
+// console.log("piping without reduce(): ", resultValue8);
 
 // ------------------------------------------------------------------------------
 // PROMISE
 
-console.log("Promise:");
+// console.log("Promise:");
 
-let fetching1 = function async() {
-  let response = fetch("https://627f71ccbe1ccb0a465fd36c.mockapi.io/students");
-  console.log("response promise=", response);
-  console.log("typeof response promise=", typeof response);
-  // let data = response.json();
-};
+// let fetching1 = function async() {
+//   let response = fetch("https://627f71ccbe1ccb0a465fd36c.mockapi.io/students");
+//   console.log("response promise=", response);
+//   console.log("typeof response promise=", typeof response);
+// let data = response.json();
+// };
 
-fetching1();
+// fetching1();
+
+// ------------------------------------------------------------------------------
+
+// hosting
+
+// let hoisting1 = function () {
+//   console.log("hoistingVar1=", hoistingVar1);
+//   console.log("hoistingVar2=", hoistingVar2);
+
+//   var hoistingVar1 = 10;
+//   let hoistingVar2 = 20;
+// };
+
+// hoisting1();
+
+// console.log("variableA=", variableA);
+// console.log("variableB=", variableB);
+// console.log("variableC=", variableC);
+
+// var variableA = "gokul";
+// let variableB = "guru";
+// const variableC = "gowtham";
+
+// ------------------------------------------------------------------------------
+
+// let obj9 = {
+//   name: "gokul",
+//   display: () => {
+//     console.log("display this=", this.name);
+//   },
+// };
+
+// let obj10 = {
+//   name: "guru",
+// };
+
+// obj9.display();
+
+// let function2 = function () {
+//   console.log("function this=", this);
+// };
+
+// function2();
+
+// let arrow1 = () => {
+//   let n = this;
+//   console.log("arrow this=", this);
+// };
+
+// arrow1();
+
+// let o = { name: "g" };
+
+// console.log("o.a=", o.a);
+
+// ------------------------------------------------------------------------------
+
+// var a = 100;
+// let obj11 = {
+//   name: "gokul",
+//   func8: function () {
+//     let a = 10;
+//     var b = 20;
+//     const c = 30;
+//     console.log("func8 this=", this);
+//   },
+// };
+
+// obj11.func8();
+
+// ------------------------------------------------------------------------------
+
+// let func10 = () => {
+//   console.log(this);
+//   console.log("this === undefined=", this === undefined);
+//   console.log("this===window", this === window);
+// };
+
+// let func11 = function () {
+//   console.log(this);
+//   console.log("this == undefined=", this == undefined);
+//   console.log("this==window", this == window);
+// };
+
+// func11();
+// ------------------------------------------------------------------------------
+
+// var nameee = "guru";
+
+// let obj12 = { name: "gokul" };
+
+// let arrow2 = () => {
+//   console.log("this.name=", this.name);
+// };
+
+// arrow2.call(obj12);
+
+// ------------------------------------------------------------------------------
+
+// var obj = {
+//   name: "gokul",
+//   display: () => {
+//     console.log(this);
+//   },
+// };
+
+// var obj1 = { name: "ABC" };
+
+// obj.display.call(obj1);
+
+// ------------------------------------------------------------------------------
+
+// let obj13 = {
+//   name: "gokul",
+//   display: function () {
+//     console.log("this keyword in function expression: ", this);
+//   },
+//   arrowDisplay: () => {
+//     console.log("this keyword in arrow function: ", this);
+//   },
+
+//   invocation: function () {
+//     this.display();
+//     this.arrowDisplay();
+//   },
+// };
+
+// obj13.invocation();
+
+// obj13.display();
+// obj13.arrowDisplay();
+// ------------------------------------------------------------------------------
+
+// let obj14 = {
+//   name: "gokul",
+//   func1: function () {
+//     function innerFunc() {
+//       console.log("inner function: this=", this);
+//     }
+//     innerFunc();
+//     innerFunc.call(this);
+//   },
+// };
+
+// obj14.func1();
+
+// ------------------------------------------------------------------------------
+
+// let obj15 = {
+//   name: "obj15",
+//   display: function () {
+//     console.log("display function: this = ", this);
+//   },
+// };
+
+// obj15.display();
+// let TempVariable = obj15.display;
+// TempVariable();
+// ------------------------------------------------------------------------------
+
+// let function3 = function () {
+//   console.log("inside function3: this keyword: ", this);
+// };
+
+// let object1 = { name: "object1" };
+
+// function3.call(object1);
+
+// ------------------------------------------------------------------------------
+
+// BINDING IN JAVASCRIPT:
+// 1) default binding (direct invocation of function)
+// 2) implicit binding (invocation of a method inside of an object)
+// 3) explicit binding (indirect invocation)
+
+// default binding:
+
+// let function1 = function () {
+//   console.log("this keyword inside function1:", this);
+// };
+
+// function1();
+
+// implicit binding:
+
+// let object2 = {
+//   name: "object2",
+//   function2: function () {
+//     console.log("this keyword inside function2: ", this);
+//   },
+// };
+
+// object2.function2();
+
+// explicit binding
+// explicit binding can be done using call(), apply(), bind()
+
+// let object3 = {
+//   name: "object3",
+//   function3: function (a) {
+//     console.log("parameter: ", a);
+//     console.log("this keyword inside function3: ", this);
+//   },
+// };
+
+// let object4 = {
+//   name: "object4",
+// };
+
+// explicit binding: call()
+// object3.function3.call(object4, 1);
+
+// explicit binding using apply()
+// object3.function3.apply(object4, [1]);
+
+// explicit binding using bind()
+// let func = object3.function3.bind(object4, 1);
+// func();
+
+// ------------------------------------------------------------------------------
