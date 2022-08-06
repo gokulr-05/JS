@@ -1390,3 +1390,146 @@
 // func();
 
 // ------------------------------------------------------------------------------
+
+// program
+
+// let newFunc = function () {
+//   console.log("this in newFunc: ", this);
+
+//   this.name = "gokul";
+
+//   this.display = function () {
+//     console.log("display");
+//   };
+// };
+
+// let obj = new newFunc();
+
+// obj.display();
+
+// ------------------------------------------------------------------------------
+
+// function myFunction() {
+//   return { myKey: 1 };
+// }
+
+// let obj1 = new myFunction();
+
+// console.log(obj1);
+
+// ------------------------------------------------------------------------------
+
+// let outer = function () {
+//   console.log("outer function: this:", this);
+//   let inner = function () {
+//     console.log("inner function : this:", this);
+//   };
+//   inner();
+// };
+
+// let objA = { myKey: 1, myOuter: outer };
+// let objB = { myKey: 2 };
+// let outerVariable = objA.myOuter;
+
+// outer();
+// objA.myOuter();
+
+// outerVariable();
+// outer.call(objB);
+
+// ------------------------------------------------------------------------------
+
+// function outer() {
+//   let inner = () => {
+//     console.log(this);
+//   };
+//   inner();
+// }
+
+// const objA = {
+//   someKey: 1,
+//   outer: outer,
+// };
+// const objB = {
+//   someKey: 2,
+// };
+
+// In this example, each time when inner function is called,
+// JS simply takes the this value from outer function
+// outer(); // Window {}
+// objA.outer(); // {someKey: 1, outer: ƒ} --> objA
+// outer.call(objB); // {someKey: 2} --> objB
+
+// ------------------------------------------------------------------------------
+
+// function outer() {
+//   console.log("this in outer() : ", this);
+//   let inner = () => {
+//     console.log("this in inner() : ", this);
+//   };
+
+//   inner();
+// }
+
+// let obj1 = { name: "gokul", display: outer };
+
+// let obj2 = { name: "guru" };
+
+// let method1 = obj1.display;
+// // outer();
+
+// // obj1.display();
+
+// method1();
+
+// ------------------------------------------------------------------------------
+
+// console.log("a");
+// console.log("b");
+// setTimeout(() => {
+//   console.log("set");
+// }, 0);
+// Promise.resolve(() => {
+//   console.log("Pro");
+// }).then((res) => {
+//   res();
+// });
+
+// ------------------------------------------------------------------------------
+// infinite currying
+
+// let add = function (a) {
+//   return function (b) {
+//     if (b !== undefined) {
+//       return add(a + b);
+//     } else {
+//       return a;
+//     }
+//   };
+// };
+
+// console.log(add(5)(2)(4)(5)());
+
+// ------------------------------------------------------------------------------
+// program
+
+let calc = {
+  total: null,
+  add: function (a) {
+    this.total = this.total === null ? a : this.total + a;
+    return this;
+  },
+  multiply: function (b) {
+    this.total = this.total === null ? b : this.total * b;
+    return this;
+  },
+  subtract: function (c) {
+    this.total = this.total === null ? c : this.total - c;
+    return this;
+  },
+};
+
+const result = calc.add(10).multiply(5).subtract(30).add(10);
+console.log(result.total);
+
+// ------------------------------------------------------------------------------
