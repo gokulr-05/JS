@@ -1533,3 +1533,85 @@ const result = calc.add(10).multiply(5).subtract(30).add(10);
 console.log(result.total);
 
 // ------------------------------------------------------------------------------
+
+// Implicit type coercion
+
+// plus +
+
+let a = 3 + "5";
+console.log(typeof a, a);
+
+let b = "3" + 5;
+console.log(typeof b, b);
+
+let c = "3" + "5";
+console.log(typeof c, c);
+
+let d = +"5";
+console.log(typeof d, d);
+
+let d1 = +"a";
+console.log("alpha 1 : ", d1, typeof d1);
+
+let d2 = 1 + "a";
+console.log("alpha 2: ", d2, typeof d2);
+
+let d3 = "a" + 1;
+console.log("alpha 3:", d3, typeof d3);
+
+let d4 = "a" + "1";
+console.log("alpha 4: ", d4, typeof d4);
+
+// minus -
+
+let e = 3 - "5";
+console.log(typeof e, e);
+
+let f = "3" - 5;
+console.log(typeof f, f);
+
+let g = "3" - "5";
+console.log(typeof g, g);
+
+let h = -"5";
+console.log(typeof h, h);
+
+let h1 = -"a";
+console.log("alpha 1 : ", h1, typeof h1);
+
+let h2 = 1 - "a";
+console.log("alpha 2: ", h2, typeof h2);
+
+let h3 = "a" - 1;
+console.log("alpha 3:", h3, typeof h3);
+
+let h4 = "a" - "1";
+console.log("alpha 4: ", h4, typeof h4);
+
+// multiply *
+
+let i = 3 * "5";
+console.log(typeof i, i);
+
+let j = "3" * 5;
+console.log(typeof j, j);
+
+let k = "3" * "5";
+console.log(typeof k, k);
+
+// let l =  * "3";
+// console.log(l);  syntax error
+
+// division /
+
+let m = 15 / "5";
+console.log(typeof m, m);
+
+let n = "15" / 5;
+console.log(typeof n, n);
+
+let o = "15" / "5";
+console.log(typeof o, o);
+
+// let p=*'5';
+// console.log(typeof p ,p);   syntax error
