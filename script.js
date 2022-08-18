@@ -2470,17 +2470,102 @@ let object6 = Object.create(object5);
 
 // class
 
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
-  getDetails() {
-    console.log(this.name + " " + this.age);
-  }
-}
+//   getDetails() {
+//     console.log(this.name + " " + this.age);
+//   }
+// }
 
-let person1 = new Person("gokul", 15);
-console.log(person1);
-person1.getDetails();
+// let person1 = new Person("gokul", 15);
+// console.log(person1);
+// person1.getDetails();
+
+// // ------------------------------------------------------------------------------
+// PERFECT PROGRAM FOR PROTOTYPAL INHERITANCE
+
+let Person = function (name, birthYear) {
+  this.name = name;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  return 2022 - this.birthYear;
+};
+
+Person.prototype.achievements = { rewards: "10000", awards: "Oscar Award" };
+
+Person.prototype.marks = [100, 99, 89, 100];
+
+let matilda = new Person("matilda", 1963);
+
+console.log(matilda);
+// console.log(matilda.calcAge());
+
+let david = new Person("david", 1988);
+
+console.log(david);
+// console.log(david.calcAge());
+
+console.log(matilda);
+console.log(Person.prototype);
+console.log(matilda.__proto__);
+
+console.log(Person.prototype);
+console.log(matilda);
+
+let obj3 = { hifi: "hifi" };
+Person.prototype = obj3;
+
+let obj4 = { namaste: "javascript " };
+
+matilda.__proto__ = obj4;
+console.log(matilda);
+
+matilda.__proto__.salam = "salam Bhai";
+
+console.log(matilda);
+
+matilda.__proto__ = [1, 2, 3];
+console.log(matilda);
+
+matilda.__proto__ = function () {
+  console.log("hello");
+};
+
+console.log(matilda);
+
+Person.prototype = [100, 101, 102];
+console.log(Person.prototype);
+
+Person.prototype.func = function () {
+  console.log("Bae");
+};
+
+Person.prototype.obj = {
+  baby: "is it ok?",
+};
+
+// // ------------------------------------------------------------------------------
+
+// let Car = function (company, model) {
+//   this.company = company;
+//   this.model = model;
+// };
+
+// Car.prototype.name = this.company;
+
+// Car.prototype.nameFunc = function () {
+//   this.name = this.company;
+// };
+
+// let polo = new Car("polo", 2015);
+// console.log(polo);
+// polo.nameFunc();
+// console.log(polo);
+
+// // ------------------------------------------------------------------------------
