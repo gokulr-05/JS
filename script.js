@@ -1,3 +1,5 @@
+"use strict";
+
 // document.getElementById("btn1").addEventListener("click", () => {
 //   console.log("btn clicked");
 // });
@@ -1530,7 +1532,7 @@ let calc = {
 };
 
 const result = calc.add(10).multiply(5).subtract(30).add(10);
-console.log(result.total);
+// console.log(result.total);
 
 // ------------------------------------------------------------------------------
 
@@ -1538,80 +1540,947 @@ console.log(result.total);
 
 // plus +
 
-let a = 3 + "5";
-console.log(typeof a, a);
+// let a = 3 + "5";
+// console.log(typeof a, a);
 
-let b = "3" + 5;
-console.log(typeof b, b);
+// let b = "3" + 5;
+// console.log(typeof b, b);
 
-let c = "3" + "5";
-console.log(typeof c, c);
+// let c = "3" + "5";
+// console.log(typeof c, c);
 
-let d = +"5";
-console.log(typeof d, d);
+// let d = +"5";
+// console.log(typeof d, d);
 
-let d1 = +"a";
-console.log("alpha 1 : ", d1, typeof d1);
+// let d1 = +"a";
+// console.log("alpha 1 : ", d1, typeof d1);
 
-let d2 = 1 + "a";
-console.log("alpha 2: ", d2, typeof d2);
+// let d2 = 1 + "a";
+// console.log("alpha 2: ", d2, typeof d2);
 
-let d3 = "a" + 1;
-console.log("alpha 3:", d3, typeof d3);
+// let d3 = "a" + 1;
+// console.log("alpha 3:", d3, typeof d3);
 
-let d4 = "a" + "1";
-console.log("alpha 4: ", d4, typeof d4);
+// let d4 = "a" + "1";
+// console.log("alpha 4: ", d4, typeof d4);
 
 // minus -
 
-let e = 3 - "5";
-console.log(typeof e, e);
+// let e = 3 - "5";
+// console.log(typeof e, e);
 
-let f = "3" - 5;
-console.log(typeof f, f);
+// let f = "3" - 5;
+// console.log(typeof f, f);
 
-let g = "3" - "5";
-console.log(typeof g, g);
+// let g = "3" - "5";
+// console.log(typeof g, g);
 
-let h = -"5";
-console.log(typeof h, h);
+// let h = -"5";
+// console.log(typeof h, h);
 
-let h1 = -"a";
-console.log("alpha 1 : ", h1, typeof h1);
+// let h1 = -"a";
+// console.log("alpha 1 : ", h1, typeof h1);
 
-let h2 = 1 - "a";
-console.log("alpha 2: ", h2, typeof h2);
+// let h2 = 1 - "a";
+// console.log("alpha 2: ", h2, typeof h2);
 
-let h3 = "a" - 1;
-console.log("alpha 3:", h3, typeof h3);
+// let h3 = "a" - 1;
+// console.log("alpha 3:", h3, typeof h3);
 
-let h4 = "a" - "1";
-console.log("alpha 4: ", h4, typeof h4);
+// let h4 = "a" - "1";
+// console.log("alpha 4: ", h4, typeof h4);
 
 // multiply *
 
-let i = 3 * "5";
-console.log(typeof i, i);
+// let i = 3 * "5";
+// console.log(typeof i, i);
 
-let j = "3" * 5;
-console.log(typeof j, j);
+// let j = "3" * 5;
+// console.log(typeof j, j);
 
-let k = "3" * "5";
-console.log(typeof k, k);
+// let k = "3" * "5";
+// console.log(typeof k, k);
 
 // let l =  * "3";
 // console.log(l);  syntax error
 
 // division /
 
-let m = 15 / "5";
-console.log(typeof m, m);
+// let m = 15 / "5";
+// console.log(typeof m, m);
 
-let n = "15" / 5;
-console.log(typeof n, n);
+// let n = "15" / 5;
+// console.log(typeof n, n);
 
-let o = "15" / "5";
-console.log(typeof o, o);
+// let o = "15" / "5";
+// console.log(typeof o, o);
 
 // let p=*'5';
 // console.log(typeof p ,p);   syntax error
+
+// ------------------------------------------------------------------------------
+
+// logical operators
+
+// OR operator
+
+// let a1 = 0;
+// let a2 = null;
+// let a3 = undefined;
+// console.log(a1 || a2 || a3);
+
+// // AND operator
+
+// let b1 = 2;
+// let b2 = 3;
+// let b3 = 4;
+// console.log(b1 && b2 && b3);
+
+// let c1 = 2;
+// let c2 = 0;
+// let c3 = 10;
+// console.log(c1 && c2 && c3);
+
+// let dd1 = null;
+// let dd2 = 0;
+// let dd3 = 5;
+// console.log(dd1 && dd2 && dd3);
+
+// // comparision operator
+
+// let com1 = 12,
+//   com2 = "12";
+// console.log(com1 == com2);
+
+// console.log(com1 === com2);
+
+// NaN
+
+// console.log(Number("1"));
+// console.log(
+//   "*******************************NaN******************************8"
+// );
+// console.log(isNaN("hello"));
+// console.log(isNaN("1"));
+// console.log(isNaN("1a"));
+// console.log(isNaN(true));
+// console.log(isNaN(false));
+// console.log("null=", isNaN(null));
+// console.log("undefined=", isNaN(undefined));
+
+// // ------------------------------------------------------------------------------
+// function functionnn1() {
+//   let a = 10;
+//   console.log(this);
+// }
+
+// let functionnn2 = function () {
+//   console.log(this);
+//   let b = 10;
+// };
+
+// functionnn1();
+// functionnn2();
+
+// ------------------------------------------------------------------------------
+
+// let object5 = {
+//   name: "gokul",
+//   method1: function () {
+//     console.log(this);
+//   },
+// };
+
+// let objectVariable = object5.method1;
+
+// let object6 = {
+//   name: "gowtham",
+//   method1: objectVariable,
+// };
+
+// object5.method1();
+// object6.method1();
+
+// ------------------------------------------------------------------------------
+
+// currying in javascript
+
+// let add = function (a, b) {
+//   return a + b;
+// };
+
+// let curryingAdd = function (a) {
+//   return function (b) {
+//     return a + b;
+//   };
+// };
+
+// let addVariable1 = add(5, 6);
+// console.log(addVariable1);
+
+// let addVariable2 = curryingAdd(5)(6);
+// console.log(addVariable2);
+
+// let addVariable3 = add(5);
+// console.log(addVariable3);
+
+// let addVariable4 = curryingAdd(5);
+// console.log(addVariable4);
+
+// ------------------------------------------------------------------------------
+
+// let globala = 10;
+
+// let globalFunc = function () {
+//   console.log(globala);
+// };
+
+// globalFunc();
+
+// ------------------------------------------------------------------------------
+
+// var Person = function (pName) {
+//   var name = pName;
+
+//   this.getName = function () {
+//     return name;
+//   };
+// };
+
+// var person = new Person("Neelesh");
+// console.log(person);
+// console.log(person.getName());
+// console.log(typeof Person);
+// console.log(typeof person);
+
+// ------------------------------------------------------------------------------
+
+// let func1 = function () {
+//   let a = "gokul";
+
+//   console.log(a);
+// };
+
+// func1();
+// ------------------------------------------------------------------------------
+
+// let arr = [1, 2, 3, 4, 5];
+// console.log(arr);
+
+// console.log(arr);
+
+// let func2 = function () {
+//   let a = "func2";
+//   // console.log(this);
+// };
+
+// console.log(func2);
+// func2();
+
+// ------------------------------------------------------------------------------
+// let z = 100;
+// console.log(z);
+
+// console.log(Math);
+
+// let z = 10;
+// z();
+
+// ------------------------------------------------------------------------------
+
+// CONSTRUCTOR FUNCTION IN JAVASCRIPT
+
+// let Graduate = function (name, age, profession) {
+//   this.name = name;
+//   this.age = age;
+
+//   this.profession = profession;
+// };
+
+// let person1 = new Graduate("gokul", 21, "FrontEnd Developer");
+// let person2 = Graduate("guru", 22, "QA");
+
+// console.log(person1);
+// console.log(person2);
+// console.log(window);
+
+// ------------------------------------------------------------------------------
+
+// let obj1 = {
+//   name: "object1",
+//   method1: function () {
+//     console.log(this);
+//     let aa = () => {
+//       console.log("method1:");
+//       console.log(this);
+//     };
+
+//     aa();
+//   },
+// };
+
+// let obj2 = { name: "object2" };
+
+// obj1.method1();
+
+// ------------------------------------------------------------------------------
+
+// let arr11 = [1, 2];
+// console.log(arr11);
+
+// console.log(
+//   "*******************************string****************************************"
+// );
+// let s = "gokul";
+// console.log(typeof s);
+
+// ------------------------------------------------------------------------------
+
+// let arr1 = [1, 2, 3, 4, 5];
+
+// let obj = Object.getPrototypeOf(arr1);
+// console.log(obj);
+
+// let obj11 = Object.getPrototypeOf(obj);
+// console.log(obj11);
+
+// let obj2 = Object.getPrototypeOf(obj11);
+// console.log(obj2);
+
+// ------------------------------------------------------------------------------
+
+// Array.prototype.additionOperation = function (...arg1) {
+//   let sum = 0;
+
+//   for (let i = 0; i < arg1.length; ++i) {
+//     sum += arg1[i];
+//   }
+//   console.log(sum);
+//   return sum;
+// };
+
+// let arr1 = [1, 2, 3, 45];
+
+// console.log(arr1);
+
+// console.log(Object.getPrototypeOf(arr1));
+
+// let arr2 = ["gokul", "hp"];
+// arr2.prototype.subtractionOperation = function () {
+//   console.log("this is subtraction operation");
+// };
+
+// console.log(arr2);
+
+// console.log(Function.prototype);
+
+// Function.prototype.function1 = function () {
+//   console.log("this is function prototype");
+// };
+
+// let f11 = function () {
+//   console.log("f1");
+// };
+
+// // ------------------------------------------------------------------------------
+// let obj = new Object({ name: "gokul", profession: "FrontEnd Developer" });
+
+// console.log(obj);
+
+// ------------------------------------------------------------------------------
+
+// different ways of creating the object:
+// 1) object literal
+// 2) by directly using object instance
+// 3) by using constructor function
+
+// object literal :
+
+// let o1 = { name: "gokul", profession: "FrontEnd Developer" };
+// console.log(o1);
+
+// // by directly using object instance
+// let o2 = new Object({ name: "gokul", profession: "FrontEnd Develper" });
+// console.log(o2);
+
+// // by using constructor function
+
+// let Person1 = function (name, profession) {
+//   this.name = name;
+//   this.profession = profession;
+// };
+
+// let o3 = new Person1("gokul", "FrontEnd Developer");
+// console.log(o3);
+
+// ------------------------------------------------------------------------------
+// promise
+
+// let promiseFunction = function (...arg) {
+//   return new Promise((resolve, reject) => {
+//     if (arg.length > 3) {
+//       reject("The arguments length should be less than or equal to 3");
+//     } else if (arg.length === 3) {
+//       let sum = 0;
+//       for (let i = 0; i < arg.length; ++i) {
+//         sum = sum + arg[i];
+//       }
+//       resolve(`The sum is ${sum}`);
+//     }
+//   });
+// };
+
+// let additionVal = promiseFunction(5, 2, 6)
+//   .then((r) => {
+//     console.log("The output:", r);
+//   })
+//   .catch((r1) => {
+//     console.log("The error:", r1);
+//   });
+// console.log(additionVal);
+
+// ------------------------------------------------------------------------------
+
+// promise
+
+// let promiseFunc2 = function (x) {
+//   return new Promise((myresolve, myreject) => {
+//     if (x === 0) {
+//       myresolve("my promise is got resolved");
+//     } else if (x !== 0) {
+//       myreject("my promise is got rejected");
+//     }
+//   });
+// };
+
+// let val = promiseFunc2(90).then(
+//   function (val) {
+//     console.log(val);
+//   },
+//   function (err) {
+//     console.log(err);
+//   }
+// );
+// console.log(val);
+
+// ------------------------------------------------------------------------------
+
+// promise
+
+// console.log("before promise");
+
+// setTimeout(() => {
+//   console.log("Timeout");
+// }, 0);
+
+// let promise1 = new Promise((resolve, reject) => {
+//   if (1 + 1 === 2) {
+//     resolve("My promise is resolved");
+//     console.log("inside promise obj");
+//   } else {
+//     reject("My Promise is Rejected");
+//   }
+// });
+
+// promise1
+//   .then((msg) => {
+//     console.log(msg);
+//   })
+//   .catch((msg) => {
+//     console.log(msg);
+//   });
+
+// console.log("After Promise");
+
+// ------------------------------------------------------------------------------
+
+// Promise.all()
+
+// let p1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Promise 1 resolved");
+//   }, 5000);
+// });
+// let p2 = new Promise((resolve, reject) => {
+//   reject("Promise 2 rejected");
+// });
+// let p3 = new Promise((resolve, reject) => {
+//   resolve("Promise 3 resolved");
+// });
+
+// Promise.all([p1, p2, p3])
+//   .then((msg) => {
+//     console.log("then():" + "Promise.all:" + msg);
+//   })
+//   .catch((msg) => {
+//     console.log("catch():" + "Promise.all:" + msg);
+//   });
+
+// Promise.race([p1, p2, p3])
+//   .then((msg) => {
+//     console.log("then():" + "Promise.race:" + msg);
+//   })
+//   .catch((msg) => {
+//     console.log("catch():" + "Promise.race:" + msg);
+//   });
+
+// ------------------------------------------------------------------------------
+
+// function funa(a) {
+//   console.log(a, "a");
+//   console.log(a + "a");
+// }
+
+// let arr = ["english", "england"];
+
+// funa(arr);
+
+// ------------------------------------------------------------------------------
+
+// console.log("Before Promise");
+
+// let promise1 = new Promise((resolve, reject) => {
+//   resolve("The promise resolved");
+//   console.log("Inside Promise ");
+// });
+
+// let function1 = async function () {
+//   let response = await promise1;
+//   console.log("The Async Await handling: " + response);
+// };
+
+// function1();
+
+// console.log("After Promise");
+
+// ------------------------------------------------------------------------------
+
+// console.log("Before Promise");
+
+// let promiseFunction = function () {
+//   return new Promise((resolve, reject) => {
+//     resolve("Promise Resolved");
+//     console.log("Inside Promise");
+//   });
+// };
+
+// let function1 = async function () {
+//   let response = await promiseFunction();
+//   console.log(response);
+// };
+
+// function1();
+
+// console.log("After Promise");
+
+// ------------------------------------------------------------------------------
+
+// function Person(name) {
+//   this.name = name;
+// }
+
+// Person.prototype.getName = function () {
+//   console.log(this.name);
+// };
+
+// let p = new Person("yamaka");
+// console.log(p);
+// p.getName();
+
+// function Car(name) {
+//   this.name = name;
+// }
+
+// let c = new Car("polo");
+// c.getName();
+
+// ------------------------------------------------------------------------------
+
+// function based prototypal inheritance
+
+// function Bike(name, color) {
+//   this.name = name;
+//   this.color = color;
+// }
+
+// Bike.prototype.getDetails = function () {
+//   console.log(`${this.name} is ${this.color}`);
+// };
+
+// let o1 = new Bike("Yamaka", "black");
+// console.log(o1);
+// o1.getDetails();
+
+// ------------------------------------------------------------------------------
+
+// class based inheritance
+
+// class Bike1 {
+//   constructor(name, color) {
+//     this.name = name;
+//     this.color = color;
+//   }
+
+//   getDetails() {
+//     console.log(`${this.name} is ${this.color}`);
+//   }
+// }
+
+// let o2 = new Bike("pulsar", "red");
+// console.log(o2);
+// o2.getDetails();
+
+// ------------------------------------------------------------------------------
+
+// let x = 10;
+// console.log(x);
+
+// delete x;
+// console.log(x);
+// ------------------------------------------------------------------------------
+
+// let f1 = function (a, a) {
+//   console.log(a);
+// };
+// f1("gokul", "guru");
+
+// let x = 10;
+// console.log(x);
+// delete x;
+
+// ------------------------------------------------------------------------------
+
+// memoization
+
+let memoizedFuncAdd100 = function () {
+  let cachedValues = {};
+
+  return function (param1) {
+    if (param1 in cachedValues) {
+      return cachedValues[param1];
+    } else {
+      let val = param1 + 100;
+      cachedValues[param1] = val;
+      return cachedValues[param1];
+    }
+  };
+};
+
+let memoizedFunc = memoizedFuncAdd100();
+console.log(memoizedFunc(123));
+console.log(memoizedFunc(123));
+
+// ------------------------------------------------------------------------------
+
+// generator function
+
+function* generatorFunc() {
+  yield 1;
+  yield 2;
+  console.log("inside the generator function");
+  yield 3;
+  return 5;
+  // yield 10;
+}
+
+let generate = generatorFunc();
+// console.log(generate);
+
+console.log(generate.next());
+console.log(generate.next());
+console.log(generate.next());
+console.log(generate.next());
+console.log(generate.next());
+
+// ------------------------------------------------------------------------------
+
+// function* generatorFunc2() {
+//   let count = 10;
+//   for (let i = 0; i < 3; ++i) {
+//     yield i;
+//     console.log("inside for loop: ", i);
+//   }
+
+//   return count;
+// }
+
+// let generate2 = generatorFunc2();
+// console.log(generate2.next());
+// console.log(generate2.next());
+// console.log(generate2.next());
+// console.log(generate2.next());
+
+// ------------------------------------------------------------------------------
+
+// set
+
+// let arr = [1, 5, 2, 6, 8, 3, 10, 3, 10, 2];
+// console.log("arr=" + arr);
+// let set1 = new Set(arr);
+// console.log('set1=',set1);
+
+// ------------------------------------------------------------------------------
+
+// set
+
+// let set1 = new Set([1, 2, 3, 4, 5]);
+// console.log(set1);
+
+// let set2 = new Set(["gokul", "guru"]);
+// console.log(set2);
+
+// let set3 = new Set([{ 1: "gokul" }, { 2: "guru" }]);
+// console.log(set3);
+
+// let set4 = new Set([
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ]);
+
+// console.log(set4);
+
+// ------------------------------------------------------------------------------
+
+// let arr = [1, 2, 3];
+// let set5 = new Set([1, 2, 3]);
+// console.log("aaa:",set5.has(1));
+
+// // set
+// console.log("Set");
+// let obj2 = { 1: "gokul" };
+// let weakSet2 = new Set([obj2, { 2: "guru" }]);
+// console.log(weakSet2.has(obj2));
+// console.log(weakSet2.has({ 1: "gokul" }));
+
+// // weakSet
+// console.log("Weakset");
+// let obj1 = { 1: "gokul" };
+// let weakSet1 = new WeakSet([obj1, { 2: "guru" }]);
+// console.log(weakSet1.has(obj1));
+// console.log(weakSet1.has({ 1: "gokul" }));
+
+// ------------------------------------------------------------------------------
+
+// let obj1 = {message:"Hello world"};
+// const newSet3 = new WeakSet([obj1]);
+// console.log(newSet3.has(obj1));
+
+// ------------------------------------------------------------------------------
+
+// // set
+
+// // primitive data type
+
+// // number
+// let set1 = new Set([1, 2, 3, 4, 5]);
+
+// console.log("set1=", set1);
+// console.log(set1.has(3));
+
+// // string
+// let set2 = new Set(["gokul", "guru"]);
+// console.log("set2=", set2);
+// console.log(set2.has("gokul"));
+
+// // non primitive
+// // array
+
+// let arr1 = [3, 4];
+// let set4 = new Set([[1, 2], arr1]);
+// console.log("set4=", set4);
+// console.log(set4.has([1, 2]));
+// console.log(set4.has(arr1));
+
+// // object
+// let obj1 = { 1: "gokul" };
+// let set3 = new Set([obj1, { 2: "guru" }]);
+// console.log("set3=", set3);
+// console.log(set3.has(obj1));
+
+// console.log(set3.has({ 2: "guru" }));
+
+// // ------------------------------------------------------------------------------
+// // weakSet
+
+// // weakset has only object data type which is non primitive
+
+// let obj2 = { 2: "guru" };
+// let weakSet1 = new WeakSet([{ 1: "gokul" }, obj2]);
+// console.log("weakSet1=", weakSet1);
+// console.log(weakSet1.has({ 1: "gokul" }));
+// console.log(weakSet1.has(obj2));
+
+// // ------------------------------------------------------------------------------
+
+// let obj = { 2: "gokul", 1: "guru", 3: "gopi" };
+// obj[2]="gokul";
+// obj[1]="guru";
+// obj[3]='gopi'
+// console.log(obj);
+
+// // ------------------------------------------------------------------------------
+
+// let map1 = new Map();
+
+// map1.set(1, "gokul");
+// console.log("map1=", map1);
+// console.log(map1.get(1));
+// map1.set(2, "guru");
+
+// console.log(map1);
+
+// console.log(map1.keys());
+// console.log(map1.values());
+// console.log(map1.entries());
+// console.log(map1.size);
+// console.log(Object.getPrototypeOf(map1));
+// console.log(Object.isFrozen);
+// console.log(map1);
+
+// // Object.setPrototypeOf(map1, { 1: "gokul" });
+// console.log(map1);
+
+// // ------------------------------------------------------------------------------
+
+let o = { 1: "gokul" };
+
+let obj = { o: 1 };
+console.log(obj);
+
+let map2 = new Map();
+
+map2.set(o, 100);
+console.log(map2);
+
+// // ------------------------------------------------------------------------------
+
+// object destructuring in javascript
+
+let obj1 = { objName: "kiran", objAge: 55, objStrength: "skills" };
+
+let { objName: name, objAge: age, objStrength: strength } = obj1;
+console.log(name, age, strength);
+
+let fun11 = function () {
+  let a = 5;
+};
+
+console.log(typeof fun11);
+
+let s = "gokul";
+console.log(typeof s);
+
+// // ------------------------------------------------------------------------------
+
+// object
+
+let object1 = {
+  firstName: "gokul",
+  lastName: "R",
+  getName: function () {
+    console.log(`${this.firstName} ${this.lastName}`);
+  },
+  address: {
+    area: "thillai",
+    street: "MGR street",
+  },
+
+  dir: ["north", "south", "east"],
+
+  set1: new Set([]),
+  map1: new Map([]),
+};
+
+console.log(object1);
+
+let map1 = new Map([
+  ["firstName", "gokul"],
+  [
+    "getName",
+    function () {
+      console.log(map1.get("firstName"));
+    },
+  ],
+]);
+// console.log(map1.get("firstName"));
+// console.log(map1.get("getName"));
+map1.get("getName")();
+
+// // ------------------------------------------------------------------------------
+
+// let object3 = {
+//   name: "prototype object name",
+//   getName: function () {
+//     console.log(this.name);
+//   },
+// };
+
+// let object2 = Object.create(object3);
+// console.log(object2);
+// console.log(object2.name);
+// object2.getName();
+
+// object2.name = "gokul";
+
+// object2.getName();
+// let object4 = { ...Object.getPrototypeOf(object2) };
+// console.log(object4);
+// let object5 = Object.getPrototypeOf(object4);
+// console.log(object5);
+// let object6 = Object.getPrototypeOf(object5);
+// console.log(object6);
+
+// // ------------------------------------------------------------------------------
+
+let object2 = { name: "object2" };
+
+let object3 = Object.create(object2);
+object3.name = "object3";
+console.log(object3.name);
+
+// // ------------------------------------------------------------------------------
+
+// object literal
+
+let person = {
+  firstname: "gokul",
+  lastname: "R",
+  getDetails: function () {
+    console.log(person.firstname);
+  },
+  address: {
+    street: "thillai nagar",
+  },
+};
+
+// constructor
+
+let Person1 = function (name, age) {
+  this.name = name;
+  this.age = age;
+};
+let object4 = new Person1("gokul", 15);
+
+// Object.create()
+let object5 = { name: "object5" };
+let object6 = Object.create(object5);
+
+// // ------------------------------------------------------------------------------
+
+// class
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getDetails() {
+    console.log(this.name + " " + this.age);
+  }
+}
+
+let person1 = new Person("gokul", 15);
+console.log(person1);
+person1.getDetails();
