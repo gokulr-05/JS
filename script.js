@@ -2550,6 +2550,19 @@ Person.prototype.obj = {
   baby: "is it ok?",
 };
 
+Person.prototype = { namePP: "prototying object" };
+
+console.log(Person.prototype);
+
+let p1 = new Person("p", 2001);
+console.log(p1.__proto__);
+console.log(Person.prototype.isPrototypeOf(p1));
+console.log(p1.__proto__.isPrototypeOf(Person.prototype));
+console.log(p1.__proto__.isPrototypeOf(p1.__proto__));
+console.log(Person.prototype.isPrototypeOf(Person.prototype));
+console.log(p1 instanceof Person);
+console.log(p1);
+console.log(p1.hasOwnProperty("name"));
 // // ------------------------------------------------------------------------------
 
 // let Car = function (company, model) {
@@ -2569,3 +2582,11 @@ Person.prototype.obj = {
 // console.log(polo);
 
 // // ------------------------------------------------------------------------------
+
+let Bike = function (company, model) {
+  this.company = company;
+  this.model = model;
+};
+
+let b1 = new Bike("yamaka", 2018);
+console.log(b1);
