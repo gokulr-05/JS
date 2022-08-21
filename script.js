@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 // document.getElementById("btn1").addEventListener("click", () => {
 //   console.log("btn clicked");
@@ -2563,6 +2563,195 @@ console.log(Person.prototype.isPrototypeOf(Person.prototype));
 console.log(p1 instanceof Person);
 console.log(p1);
 console.log(p1.hasOwnProperty("name"));
+
+console.log(Object.prototype.constructor);
+
+// ES6 CLASSES
+
+class PersonCl {
+  constructor(name, birthYear) {
+    this.name = name;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+}
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.name}`);
+};
+
+let mathew = new PersonCl("mathew", 1988);
+
+console.log(mathew);
+
+mathew.calcAge();
+mathew.greet();
+
+// getter and setter in javascript objects
+
+let object7 = {
+  name: "Rolex",
+  birthYear: 1977,
+  get getName() {
+    return this.name;
+  },
+
+  set setName(val) {
+    this.name = val;
+  },
+};
+
+console.log(object7);
+console.log(object7.getName);
+object7.setName = "Dilli";
+console.log(object7.getName);
+console.log(object7);
+
+let object8 = {
+  name: "JD",
+  get name1() {
+    return this.name;
+  },
+  set name1(val) {
+    this.name = val;
+  },
+};
+
+console.log(object8);
+object8.name1 = "Bhavani"; //setter
+console.log(object8.name1); //getter
+
+let Vehicle = function (name) {
+  this.name = name;
+};
+
+Vehicle.prototype.welcome = function () {
+  console.log("Welcome vehicle");
+};
+
+Vehicle.greeting = function () {
+  console.log(this);
+  console.log("Hey, This is my vehicle");
+};
+
+let v1 = new Vehicle("Benz");
+
+console.log(v1);
+console.log(Vehicle.greeting);
+
+class Jeep {
+  constructor(name) {
+    this.name = name;
+  }
+  driving() {
+    console.log("driving");
+  }
+  static wheeling() {
+    console.log("Wheeling");
+  }
+}
+
+let jeep1 = new Jeep("jeep");
+console.log(jeep1);
+
+Jeep.wheeling();
+
+// object.create()
+let object10 = {
+  calcAge: function () {
+    console.log(2022 - this.birthYear);
+  },
+};
+
+let object11 = Object.create(object10);
+object11.birthYear = 1988;
+
+object11.calcAge();
+
+// inheritance between constructor function
+
+let Person2 = function (name, birthYear) {
+  this.name = name;
+  this.birthYear = birthYear;
+};
+
+Person2.prototype.calcAge = function () {
+  console.log(2022 - this.birthYear);
+};
+
+let Student = function (name, birthYear, subject) {
+  Person2.call(this, name, birthYear);
+  this.subject = subject;
+};
+Student.prototype = Object.create(Person2.prototype);
+
+Student.prototype.intro = function () {
+  console.log(`Hi! ${this.name}`);
+};
+
+let student1 = new Student("guru", 2001, "CS");
+student1.intro();
+console.log(student1);
+student1.calcAge();
+
+// inheritance between classes
+class PersonClass1 {
+  constructor(name, birthYear) {
+    this.name = name;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+}
+
+class StudentClass1 extends PersonClass1 {
+  constructor(name, birthYear, subject) {
+    super(name, birthYear);
+    this.subject = subject;
+  }
+
+  greeting() {
+    console.log(`Hi! ${this.name}`);
+  }
+}
+
+let stud1 = new StudentClass1("gowtham", 1990, "CS");
+stud1.calcAge();
+stud1.greeting();
+
+class Bank {
+  constructor(owner, currency, pin) {
+    this.owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.locale = navigator.language;
+    console.log(this.locale);
+
+    // directly adding the method into each and every object
+    this.getting = function () {
+      console.log("getting");
+    };
+  }
+
+  // adding method to prototype of object
+  getting1() {
+    console.log("getting1");
+  }
+
+  // static method belongs to the class(constructor function)
+  static getting2() {
+    console.log("getting2");
+  }
+}
+
+let bank1 = new Bank("rocky", "EURO", "0000");
+
+console.log(bank1);
+
 // // ------------------------------------------------------------------------------
 
 // let Car = function (company, model) {
@@ -2583,10 +2772,10 @@ console.log(p1.hasOwnProperty("name"));
 
 // // ------------------------------------------------------------------------------
 
-let Bike = function (company, model) {
-  this.company = company;
-  this.model = model;
-};
+// let Bike = function (company, model) {
+//   this.company = company;
+//   this.model = model;
+// };
 
-let b1 = new Bike("yamaka", 2018);
-console.log(b1);
+// let b1 = new Bike("yamaka", 2018);
+// console.log(b1);
