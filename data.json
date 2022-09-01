@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Menu 1",
+    "link": "http://google.com",
+    "subitems": [{ "name": "Menu 2", "link": "http://google.com" }]
+  },
+  {
+    "name": "Menu 3",
+    "link": "http://google.com",
+    "subitems": [
+      {
+        "name": "Menu 4",
+        "link": "http://google.com",
+        "subitems": [
+          {
+            "name": "Menu 4",
+            "link": "http://google.com",
+            "subitems": [
+              { "name": "Menu 5", "link": "http://google.com" },
+              { "name": "Menu 6", "link": "http://google.com" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -2752,6 +2752,87 @@ let bank1 = new Bank("rocky", "EURO", "0000");
 
 console.log(bank1);
 
+class Account {
+  constructor(owner, pin) {
+    this.owner = owner;
+    this._pin = pin;
+    this._movements = [];
+  }
+
+  deposit(val) {
+    this._movements.push(val);
+  }
+
+  withdraw() {
+    return this._movements.pop();
+  }
+}
+
+let account1 = new Account("gopi", "0000");
+console.log(account1);
+console.log(account1.owner);
+console.log(account1._pin);
+
+let acc2 = new Account();
+
+console.log(acc2);
+
+// real encapsulation
+
+class RegisterApp {
+  #password;
+  #msg;
+  constructor(name, userName, password) {
+    this.name = name;
+    this.userName = userName;
+    this.#password = password;
+    this.#msg = "Welcome";
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  #greet() {
+    console.log(this.#msg);
+  }
+}
+
+let user1 = new RegisterApp("guru", "guru", "12345");
+console.log(user1);
+// console.log(user1.#msg);
+
+// user1.#greet();
+
+// inheritance (rough work)
+
+class A {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    console.log("A:", this);
+  }
+  calcA() {
+    console.log("calcA");
+  }
+}
+
+class B extends A {
+  constructor(x, y, z) {
+    super(x, y);
+    this.z = z;
+    console.log("B:", this);
+  }
+}
+
+let bb = new B("a", "b", "c");
+
+console.log(bb);
+
 // // ------------------------------------------------------------------------------
 
 // let Car = function (company, model) {
@@ -2779,3 +2860,45 @@ console.log(bank1);
 
 // let b1 = new Bike("yamaka", 2018);
 // console.log(b1);
+
+let data = [
+  {
+    name: "Menu 1",
+    link: "http://google.com",
+    subitems: [{ name: "Menu 2", link: "http://google.com" }],
+  },
+  {
+    name: "Menu 3",
+    link: "http://google.com",
+    subitems: [
+      {
+        name: "Menu 3",
+        link: "http://google.com",
+        subitems: [
+          {
+            name: "Menu 4",
+            link: "http://google.com",
+            subitems: [
+              { name: "Menu 5", link: "http://google.com" },
+              { name: "Menu 6", link: "http://google.com" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+function recursion1(arr) {
+  arr.forEach((val) => {
+    for (let [key, value] of Object.entries(val)) {
+      if (key === "subitems") {
+        recursion1(value);
+      } else {
+        console.log(value);
+      }
+    }
+  });
+}
+
+recursion1(data);
